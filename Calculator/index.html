@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body
+{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.container
+{
+    width: 370px;
+    height: 480px;
+    border-radius: 10px;
+    background-color: rgb(192, 213, 238);
+    box-shadow: 0px 0px 30px 0.5px rgb(194, 195, 197);
+    row-gap: 3px;
+    display: flex;
+    flex-direction: column;
+}
+.up
+{
+    width: 360px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: right;
+    align-items:last baseline;
+    margin: 5px;
+    font-size: xx-large;
+    box-shadow: 0px 1px 6px 1px rgb(239, 239, 239);
+    overflow:auto;
+}
+#display
+{
+    padding: 5px;
+}
+
+.down
+{
+    width: 360px;
+    height: 370px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    font-size: xx-large;
+   
+}
+.left
+{
+   
+    width: 270px;
+    height: 360px;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right
+{
+    
+    width: 90px;
+    height: 360px;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn
+{
+    width: 77px;
+    height: 65px;
+    margin: 3px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(192, 213, 238);
+    color: white;
+    font-size: xx-large;
+    box-shadow: 0px 0px 10px 0.1px rgb(36, 63, 85);
+}
+.btn:hover
+{
+  scale: 1.04;
+  transition: all ease-in-out 100ms;
+  cursor:pointer;
+  box-shadow: 0px 0px 10px 0.1px rgb(71, 73, 102);
+}
+#zero
+{
+    width: 165px;
+}
+#eq
+{
+    height: 142px;
+    background-color:orange;
+}
+
+
+.special
+{
+  color:darkslategrey;   
+}
+@media screen and (max-width:380px)
+{
+.container
+{
+    width: 300px;
+    height: 450px;
+}
+.up
+{
+    width: 290px;
+}
+#display
+{
+    padding: 5px;
+}
+.down
+{
+    width: 285px;
+    
+}
+.left
+{
+    width: 220px;
+}
+.left button
+{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.right
+{
+    width: 65px;
+
+}
+.btn
+{
+    width: 60px;
+    height: 60px;
+}
+#eq
+{
+    height: 130px;
+}
+}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="up">
+      <div id="display">0</div>
+    </div>
+    <div class="down">
+      <div class="left">
+        <div class="digits">
+
+          <button class="btn special" onclick="display.innerText='0'">C</button>
+          <button class="btn special" value="/" onclick="myfunction(display,event.target)">/</button>
+          <button class="btn special" value="*" onclick="myfunction(display,event.target)">X</button>
+          <button class="btn" value="7" onclick="display.innerText+=event.target.value">7</button>
+          <button class="btn" value="8" onclick="display.innerText+=event.target.value">8</button>
+          <button class="btn" value="9" onclick="display.innerText+=event.target.value">9</button>
+          <button class="btn" value="4" onclick="display.innerText+=event.target.value">4</button>
+          <button class="btn" value="5" onclick="display.innerText+=event.target.value">5</button>
+          <button class="btn" value="6" onclick="display.innerText+=event.target.value">6</button>
+          <button class="btn" value="1" onclick="display.innerText+=event.target.value">1</button>
+          <button class="btn" value="2" onclick="display.innerText+=event.target.value">2</button>
+          <button class="btn" value="3" onclick="display.innerText+=event.target.value">3</button>
+          <button class="btn" value="0" onclick="display.innerText+=event.target.value" >0</button>
+          <button class="btn" value="00" onclick="display.innerText+=event.target.value" >00</button>
+          <button class="btn" value="." onclick="if(display.innerText.slice(-1)!='.'){display.innerText+='.'}">.</button>
+        </div>
+      </div>
+      <div class="right">
+
+        <button class="btn" onclick="display.innerText=display.innerText.slice(0, -1); if(display.innerText.length==0){display.innerText='0'}" style="display: flex; justify-content: center; align-items: center;">
+          <img src="back.svg" alt="" style=" width: 50px; height: 30px; border-radius: 10px;">
+        </button>
+        <button class="btn special" value="-" onclick="myfunction(display,event.target)">-</button>
+        <button class="btn special" value="+" onclick="myfunction(display,event.target)">+</button>
+        <button class="btn special" id="eq" onclick="ee(display)">=</button>
+      </div>
+    </div>
+  </div>
+  <footer style="position: fixed; bottom: 10px;">All Rights Reserved @Shaurya Kajla</footer>
+  <script>
+    function ee(display)
+    {
+       try 
+       {
+          let str=eval(display.innerText)
+          display.innerText=str
+       }
+       catch (error) 
+       {
+         display.innerText="Error"
+       }
+    }
+    function myfunction(display, target) {
+      if (display.innerText.slice(-1) == '*' || display.innerText.slice(-1) == '/' || display.innerText.slice(-1) =='+' || display.innerText.slice(-1) == '-')
+         {
+        let str = display.innerText.slice(0, -1) + target.value;
+        display.innerText = str
+      } 
+      else 
+      {
+        display.innerText += target.value;
+      }
+    }
+  </script>
+</body>
+
+</html>

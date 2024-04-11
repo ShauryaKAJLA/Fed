@@ -1,0 +1,157 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body
+{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+.container
+{
+    width: 370px;
+    height: 480px;
+    border-radius: 10px;
+    background-color: rgb(192, 213, 238);
+    box-shadow: 0px 0px 30px 0.5px rgb(194, 195, 197);
+    row-gap: 3px;
+    display: flex;
+    flex-direction: column;
+}
+.up
+{
+    width: 360px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: right;
+    align-items:last baseline;
+    margin: 5px;
+    font-size: xx-large;
+    box-shadow: 0px 1px 6px 1px rgb(239, 239, 239);
+    overflow:auto;
+}
+#display
+{
+    padding: 5px;
+}
+
+.down
+{
+    width: 360px;
+    height: 370px;
+    border-radius: 10px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    font-size: xx-large;
+   
+}
+.left
+{
+   
+    width: 270px;
+    height: 360px;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.right
+{
+    
+    width: 90px;
+    height: 360px;
+    border-radius:10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.btn
+{
+    width: 77px;
+    height: 65px;
+    margin: 3px;
+    border: 0px;
+    border-radius: 10px;
+    background-color: rgb(192, 213, 238);
+    color: white;
+    font-size: xx-large;
+    box-shadow: 0px 0px 10px 0.1px rgb(36, 63, 85);
+}
+.btn:hover
+{
+  scale: 1.04;
+  transition: all ease-in-out 100ms;
+  cursor:pointer;
+  box-shadow: 0px 0px 10px 0.1px rgb(71, 73, 102);
+}
+#zero
+{
+    width: 165px;
+}
+#eq
+{
+    height: 142px;
+    background-color:orange;
+}
+
+
+.special
+{
+  color:darkslategrey;   
+}
+@media screen and (max-width:380px)
+{
+.container
+{
+    width: 300px;
+    height: 450px;
+}
+.up
+{
+    width: 290px;
+}
+#display
+{
+    padding: 5px;
+}
+.down
+{
+    width: 285px;
+    
+}
+.left
+{
+    width: 220px;
+}
+.left button
+{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+.right
+{
+    width: 65px;
+
+}
+.btn
+{
+    width: 60px;
+    height: 60px;
+}
+#eq
+{
+    height: 130px;
+}
+}
